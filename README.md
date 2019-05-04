@@ -6,9 +6,10 @@ GroupId: A group ID is a universally unique identifier for a project. While this
 
 
 
-Steps:
+Steps To Execute a TestNG File:
+-------------------------------
 1. Create a testNg file.
-  @Test
+  	@Test
 	public void start() {
 		System.out.println("Testng");
 	}
@@ -39,6 +40,9 @@ Steps:
   
  4. INstall Maven on windows: https://www.mkyong.com/maven/how-to-install-maven-in-windows/
     Once maven is installed locally, we can run maven through command prompt.
+    -mvn clean // to clean the project
+    -mvn install // to run the POM.xml
+    
 
 5. Send Parameters from maven to TestNg.
   	<build>
@@ -66,7 +70,45 @@ Steps:
 	=> For executing tests in parallel we set parallel and threadcount tags.
 	=> For executing tests in different location than in default location we use testSourceDirectory.
 
-6. mvn package exec:java
+	To send parameters from command prompt => mvn install -Dparameter1=value1 -Dparameter2=value2 ...
+
+	To access these parameters in TestNG use @Parameters and pass these same parameternames as method arguments as shown below:
+     	  @Parameters({"browser","path"})
+	  @Test
+	  public void f(String browser,String path) {
+		  System.out.println("First Test NG  Test"+browser+path);
+	  }
+6. Maven by default compiles .java files in main and test directory and we have to compile the other directories on our own. To do that    we have to add the below lines in pom.xml.
+	<build>
+		<plugins>
+			 <plugin>
+			    <groupId>org.codehaus.mojo</groupId>
+			    <artifactId>build-helper-maven-plugin</artifactId>
+			    <version>3.0.0</version>
+			    <executions>
+				<execution>
+				    <phase>generate-sources</phase>
+				    <goals>
+					<goal>add-source</goal>
+				    </goals>
+				    <configuration>
+					<sources>
+					    <source>Selenium</source>
+					</sources>
+				    </configuration>
+				</execution>
+			    </executions>
+			</plugin>
+		</plugins>
+	</build>
+	
+   here folder in which we have written the source code/ test code, or code that we need to compile explictly should be present in 
+   <source>Selenium</source>. //'Selenium' is the folder name
+======================================================================================================================================
+Execute a Java Main method using maven.
+
+1. Add the belwo lines in pom.xml. mainClass that we need to run, path details should be specified in 
+<mainClass>test.sumanthmavern</mainClass> //packagename.classname
 	<build>
 		<plugins>
 			<plugin>
@@ -74,10 +116,16 @@ Steps:
   					<artifactId>exec-maven-plugin</artifactId>
   					<version>1.4.0</version>
   					<configuration>
-  						<mainClass>${project.basedir}\Selenium.test.sumanthmavern</mainClass>
+  						<mainClass>test.sumanthmavern</mainClass>
   					</configuration>
   			</plugin>
 		</plugins>
 	</build>
 
-7. 
+2. mvn package exec:java
+
+
+
+Default Variables:
+------------------
+// ${project.basedir} -- gives the project directory

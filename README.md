@@ -41,4 +41,27 @@ Steps:
     Once maven is installed locally, we can run maven through command prompt.
 
 5. Send Parameters from maven to TestNg.
-  In 
+  	<build>
+		<plugins>
+			<plugin>
+				  	<groupId>org.apache.maven.plugins</groupId>
+  					<artifactId>maven-surefire-plugin</artifactId>
+  					<version>3.0.0-M3</version>
+				
+				<configuration>
+					<parallel>all</parallel>
+					<threadCount>10</threadCount>
+					<suiteXmlFiles>testNg.xml</suiteXmlFiles>
+					<systemPropertyVariables>
+						<browserdetails>${browser}</browserdetails>
+						<ResultsPath>${path}</ResultsPath>
+					</systemPropertyVariables>
+					<testSourceDirectory>${basedir}/Selenium</testSourceDirectory>
+                    <testClassesDirectory>${project.build.directory}/classes/</testClassesDirectory>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	=> For executing tests in parallel we set parallel and threadcount tags.
+	=> For executing tests in different location than in default location we use testSourceDirectory.

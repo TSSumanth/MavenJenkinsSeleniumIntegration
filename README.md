@@ -65,3 +65,19 @@ Steps:
 
 	=> For executing tests in parallel we set parallel and threadcount tags.
 	=> For executing tests in different location than in default location we use testSourceDirectory.
+
+6. mvn package exec:java
+	<build>
+		<plugins>
+			<plugin>
+				  	<groupId>org.codehaus.mojo</groupId>
+  					<artifactId>exec-maven-plugin</artifactId>
+  					<version>1.4.0</version>
+  					<configuration>
+  						<mainClass>${project.basedir}\Selenium.test.sumanthmavern</mainClass>
+  					</configuration>
+  			</plugin>
+		</plugins>
+	</build>
+
+7. 

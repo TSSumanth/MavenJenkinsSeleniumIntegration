@@ -108,7 +108,8 @@ Steps To Execute a TestNG File:
 Execute a Java Main method using maven.
 
 1. Add the belwo lines in pom.xml. mainClass that we need to run, path details should be specified in 
-<mainClass>test.sumanthmavern</mainClass> //packagename.classname
+	<mainClass>test.sumanthmavern</mainClass> //packagename.classname
+	
 	<build>
 		<plugins>
 			<plugin>
@@ -125,6 +126,31 @@ Execute a Java Main method using maven.
 2. mvn package exec:java
 
 
+
+========================================================================================================================================
+Add Local Jar to maven repository:
+---------------------------------
+1. Create a folder inside the project and Download the jar required and place it in that folder.
+2. Now this jar should be installed to mavens local repository.
+
+	Synatx:
+		mvn install:install-file -Dfile=<path-to-file> -DgroupId=<group-id> -DartifactId=<artifact-id> -Dversion=<version>		       -Dpackaging=<packaging> -DgeneratePom=true
+		Ex: mvn install:install-file  -Dfile=D:\Selenium\Oracle JDBC Jar\ojdbc8.jar -DgroupId=com.oracle -DartifactId=ojdbc8 			-Dversion=12.2.0.1  -Dpackaging=jar -DgeneratePom=true
+	
+	Where each refers to:
+
+		< path-to-file >: the path to the file to load e.g -> c:\kaptcha-2.3.jar
+
+		< group-id >: the group that the file should be registered under e.g -> com.google.code
+
+		< artifact-id >: the artifact name for the file e.g -> kaptcha
+
+		< version >: the version of the file e.g -> 2.3
+
+		< packaging >: the packaging of the file e.g. -> jar
+
+
+=======================================================================================================================================
 
 Default Variables:
 ------------------

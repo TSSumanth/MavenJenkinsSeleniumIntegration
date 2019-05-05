@@ -154,7 +154,8 @@ Add Local Jar to maven repository:
 
 		< packaging >: the packaging of the file e.g. -> jar
 
-
+	Reference: http://maven.apache.org/general.html#importing-jars
+	
 =======================================
 
 Default Variables:

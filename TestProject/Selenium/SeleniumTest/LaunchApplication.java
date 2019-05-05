@@ -23,7 +23,7 @@ public class LaunchApplication {
 		}
 		else if(BrowserName.toUpperCase().equals("CHROME"))
 		{
-			System.setProperty("webdriver.chrome.driver", "D:\\Selenium\\chromedriver_win32\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "D:\\Selenium\\chromedriver_win32\\chromedriver.exe" );
 			driver=new ChromeDriver();
 		}
 		else if(BrowserName.toUpperCase().equals("HEADLESSCHROME"))

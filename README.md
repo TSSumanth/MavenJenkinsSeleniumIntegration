@@ -104,8 +104,10 @@ Steps To Execute a TestNG File:
 	
    here folder in which we have written the source code/ test code, or code that we need to compile explictly should be present in 
    <source>Selenium</source>. //'Selenium' is the folder name
-====================================================================
-Execute a Java Main method using maven.
+============================================
+
+Execute a Java Main method using maven
+--------------------------------------
 
 1. Add the belwo lines in pom.xml. mainClass that we need to run, path details should be specified in 
 	<mainClass>test.sumanthmavern</mainClass> //packagename.classname
@@ -127,7 +129,9 @@ Execute a Java Main method using maven.
 
 
 
-===================================================================
+========================================
+
+
 Add Local Jar to maven repository:
 ---------------------------------
 1. Create a folder inside the project and Download the jar required and place it in that folder.
@@ -150,7 +154,7 @@ Add Local Jar to maven repository:
 		< packaging >: the packaging of the file e.g. -> jar
 
 
-===============================================================
+=======================================
 
 Default Variables:
 ------------------

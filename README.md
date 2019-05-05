@@ -139,6 +139,7 @@ Add Local Jar to maven repository:
 
 	Synatx:
 		mvn install:install-file -Dfile=<path-to-file> -DgroupId=<group-id> -DartifactId=<artifact-id> -Dversion=<version>		       -Dpackaging=<packaging> -DgeneratePom=true
+		
 		Ex: mvn install:install-file  -Dfile=D:\Selenium\Oracle JDBC Jar\ojdbc8.jar -DgroupId=com.oracle -DartifactId=ojdbc8 			-Dversion=12.2.0.1  -Dpackaging=jar -DgeneratePom=true
 	
 	Where each refers to:
